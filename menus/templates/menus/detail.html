@@ -1,0 +1,18 @@
+<h1>{{ resturant.name }}</h1>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+{% for menu in resturant.menu_set.all %}
+<input type="radio" name="menu" id="menu{{ forloop.counter }}" value="{{ menu.id }}" />
+<label for="menu{{ forloop.counter }}">{{ menu.mtype }}</label><br />
+
+{% for item in menu_item %}
+<label for="menu{{ forloop.counter }}">{{ item.name }}</label><br />
+{% endfor %}
+{% endfor %}
+
+
+
+
+

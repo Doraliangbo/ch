@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'menu/style.css' %}" />
+
+{% if resturant_list %}
+    <ul>
+    {% for resturant in resturant_list %}
+        <li><a href="{% url 'menus:detail' resturant.id %}">{{ resturant.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No resturants are available.</p>
+{% endif %}
